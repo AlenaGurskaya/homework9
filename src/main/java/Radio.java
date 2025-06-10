@@ -1,7 +1,20 @@
 public class Radio {
 
     //Станция
-    public int numberCurrentStation;
+    private int numberCurrentStation;
+
+    //Громкость
+    private int currentVolume;
+
+    //Получить значение номер станции
+    public int getNumberCurrentStation() {
+        return numberCurrentStation;
+    }
+
+    //Получить значение громкости
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
 
     //Устанавливает пределы количества станций
     public void setNumberCurrentStation(int newNumberCurrentStation) {
@@ -14,24 +27,6 @@ public class Radio {
         numberCurrentStation = newNumberCurrentStation;
     }
 
-    //Переключает на следующую станцию
-    public void NextStation() {
-        if (numberCurrentStation < 9) {
-            numberCurrentStation = numberCurrentStation + 1;
-        } else numberCurrentStation = 0;
-    }
-
-    //Переключает на предыдущую станцию
-    public void PrevStation() {
-        if (numberCurrentStation > 0) {
-            numberCurrentStation = numberCurrentStation - 1;
-        } else numberCurrentStation = 9;
-    }
-
-
-    //Громкость
-    public int currentVolume;
-
     //Устанавливает пределы громкости
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
@@ -43,15 +38,33 @@ public class Radio {
         currentVolume = newCurrentVolume;
     }
 
-    //Увеличение громкости
-    public void IncreaseVolume() {
+    //Функцию переключения на следующую станцию
+    public void nextStation() {
+        if (numberCurrentStation < 9) {
+            numberCurrentStation = numberCurrentStation + 1;
+        } else {
+            numberCurrentStation = 0;
+        }
+    }
+
+    //Функция переключения на предыдущую станцию
+    public void prevStation() {
+        if (numberCurrentStation > 0) {
+            numberCurrentStation = numberCurrentStation - 1;
+        } else {
+            numberCurrentStation = 9;
+        }
+    }
+
+    //Функция увеличение громкости
+    public void increaseVolume() {
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
 
-    //Уменьшение громкости
-    public void DecreaseVolume() {
+    //Функция уменьшение громкости
+    public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
